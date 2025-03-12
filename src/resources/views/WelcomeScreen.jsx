@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const WelcomeScreen = () => {
   console.log("Estas en welcome")
@@ -12,7 +13,7 @@ const WelcomeScreen = () => {
       >
         <h1 className="text-5xl font-bold mb-4">¡Bienvenido a la Aplicación!</h1>
         <p className="text-lg mb-8">Estamos encantados de tenerte aquí.</p>
-
+        <Link to={"/login"}>Login</Link>
       </div>
     </div>
   );

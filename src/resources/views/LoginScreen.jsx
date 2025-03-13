@@ -1,10 +1,11 @@
 import { Container, Box, Typography, TextField, Button } from '@mui/material';
-import backgroundImage from '../../resources/images/kkdvk.png';
+import backgroundImage from '../../resources/images/Logo1x1.jpg';
 import React from 'react';
+import { red } from '@mui/material/colors';
 
 const LoginScreen = () => {
   return (
-    <Container maxWidth="xl" disableGutters sx={{ bgcolor: 'red' }}>
+    <Container maxWidth="xl" disableGutters>
       <Box
         sx={{
           width: '100%',
@@ -13,15 +14,12 @@ const LoginScreen = () => {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          bgcolor: 'blue',
-          color: 'black',
         }}
       >
-        {/* Box con imagen de fondo */}
         <Box
           sx={{
             width: '50%',
-            height: '100vh', // Ocupa toda la altura
+            height: '100vh', 
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -29,7 +27,6 @@ const LoginScreen = () => {
           }}
         />
 
-        {/* Box del formulario de login */}
         <Box
           sx={{
             width: '50%',
@@ -42,37 +39,67 @@ const LoginScreen = () => {
             sx={{
               width: '65%',
               padding: '30px',
-              bgcolor: 'background.default',
-              
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: 2,
+              gap: 4,
             }}
           >
             <Typography variant="h4">
-              Inicio de Sesión
+              Iniciar Sesión
             </Typography>
-
-            {/* Campos del formulario */}
+            <Typography variant='body1' color='primary' sx={{marginBottom: 4, marginTop: -1}}>
+              Ingresar con tu cuenta Llave Mx
+            </Typography>
+            
             <TextField 
-              label="Correo Electrónico" 
-              variant="outlined" 
-              fullWidth 
+              
+              variant="standard" 
+              placeholder='Ingresa tu usuario'
+              fullWidth
+              sx={{
+                bgcolor: "secondary.main",
+                pt: 1,
+                opacity: 0.6,
+                borderRadius: 1,
+              }}
+              slotProps={{
+                input: {
+                  sx: { 
+                    color: "#7C4A36",
+                    pb: 1,
+                    pl: 1
+                  }, 
+                },
+              }}
             />
             <TextField 
-              label="Contraseña" 
               type="password" 
-              variant="outlined" 
-              fullWidth 
+              variant="standard" 
+              placeholder='Ingresa tu contraseña'
+              fullWidth
+              sx={{
+                bgcolor: "secondary.main",
+                pt: 1,
+                opacity: 0.6,
+                borderRadius: 1,
+              }}
+              slotProps={{
+                input: {
+                  sx: { 
+                    color: "#7C4A36" ,
+                    pb: 1,
+                    pl: 1 
+                  },
+                  
+                },
+              }}
             />
 
-            {/* Botón de inicio de sesión */}
             <Button variant="contained" color="primary" fullWidth>
               Iniciar Sesión
             </Button>
 
-            {/* Enlace para recuperar contraseña */}
             <Typography variant="body2" color="secondary">
               ¿Olvidaste tu contraseña?
             </Typography>

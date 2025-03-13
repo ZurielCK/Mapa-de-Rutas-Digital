@@ -21,7 +21,7 @@ const theme = createTheme({
             fontWeight: "bold",
         },
         h4: {
-            color: '#7C4A36', // Subtítulos destacados
+            color: '#7C4A36', 
             fontWeight: 530,
         },
         h5: {

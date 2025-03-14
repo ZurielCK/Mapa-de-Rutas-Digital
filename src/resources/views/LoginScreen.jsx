@@ -1,10 +1,13 @@
-import { Container, Box} from '@mui/material';
+import { Container, Box, useMediaQuery,} from '@mui/material';
 import backgroundImage from '../../resources/images/Logo1x1.jpg';
 import Login from '../../auth/Login';
 import React from 'react';
 
 
 const LoginScreen = () => {
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+
+
   return (
     <Container maxWidth="xl" disableGutters>
       <Box
@@ -17,16 +20,18 @@ const LoginScreen = () => {
           alignItems: 'center',
         }}
       >
-        <Box
-          sx={{
-            width: '50%',
-            height: '100vh', 
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        />
+         {!isSmallScreen && ( 
+          <Box
+            sx={{
+              width: "50%",
+              height: "100vh",
+              backgroundImage: `url(${backgroundImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        )}
         <Login></Login>
       </Box>
     </Container>

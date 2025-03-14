@@ -1,8 +1,12 @@
+import { Container } from '@mui/material';
+import MapView from '../../modules/digital_map/MapView';
 import React from 'react'
 
  const DigitalMapScreen = () => {
   return (
-    <div>DigitalMapScreen</div>
+    <Container maxWidth='xl' disableGutters>
+      <MapView></MapView>
+    </Container>
   )
 }
 

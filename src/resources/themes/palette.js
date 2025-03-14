@@ -37,7 +37,7 @@ const theme = createTheme({
             fontSize: "1rem",
         },
         body2: {
-            color: '#2E3B2B',
+            color: '#7C4A36',
             fontSize: "0.875rem",
         },
         subtitle1: {

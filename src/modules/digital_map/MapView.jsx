@@ -9,12 +9,14 @@ const MapView = () => {
   return (
     <Box
       sx={{
-        position: "relative",
+        position: "absolute", 
+        top: 0,
+        left: 0,
         width: "100%",
-        height: "100vh",
+        height: "100%",
+        zIndex: 0,
       }}
     >
-      {/* Mapa */}
       <MapContainer
         center={position}
         zoom={17}
@@ -31,34 +33,6 @@ const MapView = () => {
           </Popup>
         </Marker>
       </MapContainer>
-
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: "10%", 
-          left: "1%",
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          zIndex: 1000,
-        }}
-      >
-        <Box
-          sx={{
-            bgcolor: "red",
-            width: "60vh",
-            height: "30vh",
-          }}
-        ></Box>
-
-        <Box
-          sx={{
-            bgcolor: "blue",
-            width: "60vh",
-            height: "30vh",
-          }}
-        ></Box>
-      </Box>
     </Box>
   );
 };

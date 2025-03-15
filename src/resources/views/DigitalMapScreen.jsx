@@ -6,9 +6,15 @@ import React from "react";
 const DigitalMapScreen = () => {
   return (
     <Container maxWidth="xl" disableGutters>
-      <Box>
-        
-        <MapView></MapView>
+      <Box
+        sx={{
+          position: "relative", 
+          width: "100%",
+          height: "100vh", 
+        }}
+      >
+        <MapView />
+        <Seeker /> 
       </Box>
     </Container>
   );

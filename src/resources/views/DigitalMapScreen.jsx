@@ -1,6 +1,7 @@
 import { Container, Box } from "@mui/material";
 import Seeker from "../../modules/digital_map/Seeker";
 import MapView from "../../modules/digital_map/MapView";
+import Navbar from "../../components/Navbar";
 import React from "react";
 
 const DigitalMapScreen = () => {
@@ -12,9 +13,10 @@ const DigitalMapScreen = () => {
           width: "100%",
           height: "100vh", 
         }}
-      >
+      >      
         <MapView />
         <Seeker /> 
+        <Navbar/>
       </Box>
     </Container>
   );

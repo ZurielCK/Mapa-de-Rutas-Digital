@@ -43,21 +43,20 @@ const Login = () => {
   return (
     <Box
       sx={{
-        width: {lg:"50%", md: '50%', sm: '50%', xs:'100%'},
+        width: { lg: "50%", md: "50%", sm: "50%", xs: "100%" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      
       }}
     >
       <Box
         sx={{
-          width: {lg:"65%"},
+          width: { lg: "65%" },
           padding: "30px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 2
+          gap: 2,
         }}
       >
         <Typography variant="h4" mb={7}>
@@ -156,9 +155,9 @@ const Login = () => {
         <Box
           sx={{
             display: "flex",
-            alignItems: 'center',
-            flexDirection: {lg:'row', md:'row', sm:'column', xs:'column'},
-            gap: {lg:8, xs: 2},
+            alignItems: "center",
+            flexDirection: { lg: "row", md: "row", sm: "column", xs: "column" },
+            gap: { lg: 8, xs: 2 },
           }}
         >
           <Typography variant="body2" color="secondary">

@@ -1,41 +1,23 @@
-import { Box, Typography, Divider, TextField, Button } from "@mui/material";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import React from "react";
+import {
+  Box,
+  Typography,
+  Divider,
+  Button,
+  Collapse,
+} from "@mui/material";
+import OptionWays from "./OptionWays.jsx";
+import React, { useState } from "react";
+import CustomTextField from "./CustomTextField.jsx";
 
-const CustomTextField = ({ label, name }) => (
-  <Box
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      width: "100%",
-      alignSelf: "end",
-    }}
-  >
-    <LocationOnOutlinedIcon
-      sx={{ color: "primary.main", mr: 1, fontSize: 28 }}
-    />
-    <TextField
-      label={label}
-      name={name}
-      required
-      variant="outlined"
-      fullWidth
-      sx={{
-        bgcolor: "secondary.main",
-        opacity: 0.6,
-        mt: 1,
-        borderRadius: 1,
-        "& .MuiInputBase-root": { height: "40px" },
-      }}
-      slotProps={{
-        input: { sx: { color: "#7C4A36", pl: 1 } },
-        inputLabel: { sx: {fontSize:{xs:'.7rem', md: '.8rem'}, mt: -0.5, pl: 1 } },
-      }}
-    />
-  </Box>
-);
+
 
 const Seeker = () => {
+  const [showOptions, setShowOptions] = useState(false);
+
+  const handleAccept = () => {
+    setShowOptions(true);
+  };
+
   return (
     <Box
       sx={{
@@ -43,10 +25,11 @@ const Seeker = () => {
         left: "1%",
         display: "flex",
         flexDirection: "column",
+        justifyContent:'start',
         gap: 1,
-        width: {xs:'100%,', md:'33%'},
+        width: { xs: "100%,", md: "33%" },
+        height: '85%',
         position: "absolute",
-        bgcolor: 'red',
         zIndex: 1000,
       }}
     >
@@ -55,15 +38,22 @@ const Seeker = () => {
           display: "flex",
           flexDirection: "column",
           bgcolor: "secondary.second",
-          height: "36vh",
+          height: showOptions ? "8vh" : "32vh",
           borderRadius: 2,
           gap: 1.5,
           p: 2,
+          transition: "height 0.5s ease-in-out",
+          overflow: "hidden",
         }}
       >
         <Typography
           variant="h6"
-          sx={{ alignSelf: "center", mt: 1, fontWeight: "bold", fontSize:{xs:'.8rem', md:'1.2rem'} }}
+          sx={{
+            alignSelf: "center",
+            mt: 1,
+            fontWeight: "bold",
+            fontSize: { xs: ".8rem", md: "1.2rem" },
+          }}
         >
           ¿A dónde quieres ir hoy?
         </Typography>
@@ -81,47 +71,73 @@ const Seeker = () => {
         <CustomTextField label="¿En dónde te encuentras?" name="origin" />
         <CustomTextField label="¿A dónde quieres llegar?" name="destination" />
 
-        <Box sx={{ width: "100%", height:'100%',
-          display:'flex', alignItems:'end', justifyContent:'flex-end' }}>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{width:'45%', fontSize:{xs:'.8rem', md:'.9rem'}}}
-          
-        >
-          Aceptar
-        </Button>
-        </Box>
-      
-      </Box>
-
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection:'colum',
-          bgcolor: "secondary.second",
-          height: "45vh",
-          borderRadius: 2,
-        }}
-      >
-        <Typography
-          variant="h6"
-          sx={{ alignSelf: "center", mt: 1, fontWeight: "bold", fontSize:{xs:'.8rem', md:'1.2rem'} }}
-        >
-          ¿A dónde quieres ir hoy?
-        </Typography>
-
-        <Divider
-          orientation="horizontal"
-          variant="middle"
+        <Box
           sx={{
-            borderBottomWidth: "2px",
-            borderColor: "primary.main",
-            opacity: 0.8,
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "end",
+            justifyContent: "flex-end",
           }}
-        />
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ width: "45%", fontSize: { xs: ".8rem", md: ".9rem" } }}
+            onClick={handleAccept}
+          >
+            Buscar
+          </Button>
+        </Box>
       </Box>
-      
+
+      <Collapse in={showOptions} timeout={500}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            bgcolor: "secondary.second",
+            height: "60vh",
+            borderRadius: 2,
+            mt: 2,
+            p: 2,
+          }}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              pt: 2,
+              mb: 2,
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                fontSize: { xs: ".8rem", md: "1.2rem" },
+              }}
+            >
+              Rutas Disponibles
+            </Typography>
+          </Box>
+          <Divider
+            orientation="horizontal"
+            variant="middle"
+            sx={{
+              width: "90%",
+              borderBottomWidth: "2px",
+              borderColor: "primary.main",
+              opacity: 0.8,
+            }}
+          />
+          <Box sx={{ width: "90%" }}>
+            <OptionWays />
+          </Box>
+        </Box>
+      </Collapse>
     </Box>
   );
 };

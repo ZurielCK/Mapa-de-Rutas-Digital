@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import React from "react";
 import "leaflet/dist/leaflet.css";
 
@@ -9,7 +9,7 @@ const MapView = () => {
   return (
     <Box
       sx={{
-        position: "absolute", 
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
@@ -20,8 +20,8 @@ const MapView = () => {
       <MapContainer
         center={position}
         zoom={17}
+        zoomControl={false} 
         style={{ height: "100%", width: "100%" }}
-        className="leaflet-map"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -32,6 +32,8 @@ const MapView = () => {
             Ubicación seleccionada: <br /> Ciudad de México.
           </Popup>
         </Marker>
+
+        <ZoomControl position="bottomright" />
       </MapContainer>
     </Box>
   );

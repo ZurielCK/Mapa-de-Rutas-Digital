@@ -11,6 +11,7 @@ const theme = createTheme({
     typography: {
         fontFamily: "sans-serif",
         h1: {
+            fontFamily:'Karol-sans',
             color: '#2E3B2B',
             fontWeight: 700,
         },

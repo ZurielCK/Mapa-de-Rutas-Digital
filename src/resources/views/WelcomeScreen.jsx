@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Navbar from '../../components/Navbar.jsx'
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import logo from "../../resources/images/Logo.jpg"; // Asegúrate de tener la ru
 
 const WelcomeScreen = () => {
   return (
-    <Box>
+    <Container maxWidth='xl' disableGutters>
       <Box>
         <Navbar></Navbar>
         <Box
@@ -80,7 +80,7 @@ const WelcomeScreen = () => {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Container>
   );
 };
 

@@ -7,8 +7,13 @@ import CustomTextField from "./CustomTextField.jsx";
 
 const Seeker = () => {
   const [showOptions, setShowOptions] = useState(false);
+  
 
   const handleAccept = () => {
+
+
+
+
     setShowOptions(true);
   };
 

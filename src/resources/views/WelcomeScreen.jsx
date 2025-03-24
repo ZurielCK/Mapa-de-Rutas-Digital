@@ -1,21 +1,86 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Box, Typography, Button } from "@mui/material";
+import React from "react";
+import Navbar from '../../components/Navbar.jsx'
+import { Link } from "react-router-dom";
+import logo from "../../resources/images/Logo.jpg"; // Asegúrate de tener la ruta correcta
 
 const WelcomeScreen = () => {
-  console.log("Estas en welcome")
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-      <div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h1 className="text-5xl font-bold mb-4">¡Bienvenido a la Aplicación!</h1>
-        <p className="text-lg mb-8">Estamos encantados de tenerte aquí.</p>
-        <Link to={"/login"}>Login</Link>
-      </div>
-    </div>
+    <Box>
+      <Box>
+        <Navbar></Navbar>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            width: "100%",
+            height: "86vh",
+          }}
+        >
+          <Box
+            sx={{
+              width: "50%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: 4,
+              pl: 10,
+            }}
+          >
+            <Typography variant="h1">MAPA DE RUTAS</Typography>
+            <Typography variant="h6">
+              Inserte texto aquí de lo que va a tratar la app de mapas
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              width: "50%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              bgcolor: "rgba(255, 255, 255, 0.1)",
+            }}
+          >
+            <Box
+              sx={{
+                width: "60%",
+                height: '60%',
+                display:'flex',
+                justifyContent: 'center',
+                alignItems:'end',
+                borderRadius:3,
+                backgroundImage: `url(${logo})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundColor: "rgba(255, 255, 255, 0.3)",
+                backgroundBlendMode: "overlay", 
+              }}
+            >
+              
+            <Button
+              component={Link}
+              to="/login"
+              variant="contained"
+              color="primary"
+              sx={{
+                width: "50%",
+                borderRadius:3,
+                mb: 5,
+                fontSize: "1rem",
+              }}
+            >
+              Iniciar Sesión
+            </Button>
+            </Box>
+
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

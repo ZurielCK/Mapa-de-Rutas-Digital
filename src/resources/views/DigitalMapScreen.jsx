@@ -15,8 +15,8 @@ const DigitalMapScreen = () => {
         }}
       >      
         <MapView />
-        <Seeker /> 
         <Navbar/>
+        <Seeker /> 
       </Box>
     </Container>
   );

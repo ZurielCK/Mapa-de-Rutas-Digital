@@ -1,15 +1,9 @@
-import {
-  Box,
-  Typography,
-  Divider,
-  Button,
-  Collapse,
-} from "@mui/material";
+import { Box, Typography, Divider, Button, Collapse } from "@mui/material";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import IconButton from "@mui/material/IconButton";
 import OptionWays from "./OptionWays.jsx";
 import React, { useState } from "react";
 import CustomTextField from "./CustomTextField.jsx";
-
-
 
 const Seeker = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -21,15 +15,13 @@ const Seeker = () => {
   return (
     <Box
       sx={{
-        bottom: "2%",
         left: "1%",
         display: "flex",
         flexDirection: "column",
-        justifyContent:'start',
-        gap: 1,
-        width: { xs: "100%,", md: "33%" },
-        height: '85%',
-        position: "absolute",
+        justifyContent: "start",
+        gap: 0,
+        width: { xs: "100%,", sm: "50%", md: "25%" },
+        position: "relative",
         zIndex: 1000,
       }}
     >
@@ -38,7 +30,7 @@ const Seeker = () => {
           display: "flex",
           flexDirection: "column",
           bgcolor: "secondary.second",
-          height: showOptions ? "8vh" : "32vh",
+          height: showOptions ? "6vh" : "35vh",
           borderRadius: 2,
           gap: 1.5,
           p: 2,
@@ -68,8 +60,20 @@ const Seeker = () => {
           }}
         />
 
-        <CustomTextField label="¿En dónde te encuentras?" name="origin" />
-        <CustomTextField label="¿A dónde quieres llegar?" name="destination" />
+        <CustomTextField
+          label="¿En dónde te encuentras?"
+          name="origin"
+          onSelectPosition={(coords) => {
+            console.log("Nueva posición:", coords);
+          }}
+        />
+        <CustomTextField
+          label="¿A dónde quieres llegar?"
+          name="destination"
+          onSelectPosition={(coords) => {
+            console.log("Nueva posición:", coords);
+          }}
+        />
 
         <Box
           sx={{
@@ -78,6 +82,7 @@ const Seeker = () => {
             display: "flex",
             alignItems: "end",
             justifyContent: "flex-end",
+            
           }}
         >
           <Button
@@ -94,14 +99,38 @@ const Seeker = () => {
       <Collapse in={showOptions} timeout={500}>
         <Box
           sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <IconButton
+            onClick={() => setShowOptions(false)}
+            sx={{
+              mt: 1,
+              fontSize: 20,
+              bgcolor: "primary.main",
+              color: "white",
+              "&:hover": {
+                bgcolor: "primary.dark",
+              },
+            }}
+          >
+            <KeyboardArrowDownIcon />
+          </IconButton>
+        </Box>
+
+        <Box
+          sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             bgcolor: "secondary.second",
             height: "60vh",
             borderRadius: 2,
-            mt: 2,
-            p: 2,
+            mt: 1,
+            p: 1,
           }}
         >
           <Box
@@ -123,6 +152,7 @@ const Seeker = () => {
               Rutas Disponibles
             </Typography>
           </Box>
+
           <Divider
             orientation="horizontal"
             variant="middle"
@@ -131,8 +161,10 @@ const Seeker = () => {
               borderBottomWidth: "2px",
               borderColor: "primary.main",
               opacity: 0.8,
+              mb: 2,
             }}
           />
+
           <Box sx={{ width: "90%" }}>
             <OptionWays />
           </Box>

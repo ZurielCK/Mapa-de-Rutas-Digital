@@ -4,12 +4,14 @@ const theme = createTheme({
     palette: {
         primary: { main: '#2E3B2B' },
         secondary: { main: '#CBCABE', second: '#FCFFF5'},
+        light: '#FCFFF5',
+        dark: '#A0A091',
         background: { default: '#CBCABE' }
     },
     typography: {
-        fontFamily: "sans-serif", // Puedes cambiarla por otra fuente
+        fontFamily: "sans-serif",
         h1: {
-            color: '#2E3B2B', // Títulos grandes
+            color: '#2E3B2B',
             fontWeight: 700,
         },
         h2: {

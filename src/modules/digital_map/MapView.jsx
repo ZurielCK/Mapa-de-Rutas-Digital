@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 
 const MapView = () => {
   const position = [18.9186, -99.2343];
+  
 
   return (
     <Box

@@ -47,13 +47,13 @@ function Navbar() {
   return (
     <Box
     sx={{      
-      position: "absolute",
+      position: "relative",
       zIndex: 1000,
       width: "100%",
       display: "flex",
       justifyContent: "center",
-      mt: 1,
-      mb: 1,
+      pt: 1,
+      mb: 2,
     }}    
     >
       <AppBar position="static" sx={{ borderRadius: 8, width: "98%"}}>

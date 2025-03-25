@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, iconButtonClasses } from "@mui/material";
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import React from "react";
 import { useMapContext } from "../../context/MapContext";
@@ -18,6 +18,7 @@ const MapView = () => {
     iconUrl: require('../../resources/images/origin.png'),
     iconSize: [40,40],
   })
+
 
   return (
     <Box
@@ -40,7 +41,7 @@ const MapView = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker position={position}>
+        <Marker icon={markerIcon} position={position}>
           <Popup>
             Ubicación seleccionada: <br /> Ciudad de México.
           </Popup>

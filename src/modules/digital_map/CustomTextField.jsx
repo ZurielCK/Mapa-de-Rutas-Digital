@@ -11,7 +11,7 @@ const CustomTextField = ({ label, name, onSelectPosition }) => {
       setSuggestions([]);
       return;
     }
-  
+
     const fetchSuggestions = async () => {
       try {
         const response = await fetch(
@@ -22,13 +22,13 @@ const CustomTextField = ({ label, name, onSelectPosition }) => {
         setSuggestions(data);
       } catch (error) {
         console.error("Error fetching suggestions:", error);
-        setSuggestions([]); 
+        setSuggestions([]);
       }
     };
-  
+
     fetchSuggestions();
   }, [query]);
-  
+
   return (
     <Box
       sx={{
@@ -41,7 +41,9 @@ const CustomTextField = ({ label, name, onSelectPosition }) => {
       <LocationOnOutlinedIcon
         sx={{ color: "primary.main", mr: 1, fontSize: 28 }}
       />
-      <Box sx={{ display: "flex", flexDirection: "column", width: "100%", mt:1,}}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", width: "100%", mt: 1 }}
+      >
         <TextField
           label={label}
           name={name}
@@ -75,10 +77,8 @@ const CustomTextField = ({ label, name, onSelectPosition }) => {
               button
               key={place.place_id}
               onClick={() => {
-                onSelectPosition([
-                  parseFloat(place.lat),
-                  parseFloat(place.lon),
-                ]);
+                const coords = [parseFloat(place.lat), parseFloat(place.lon)];
+                onSelectPosition(coords, place.display_name);
                 setQuery(place.display_name);
                 setSuggestions([]);
               }}

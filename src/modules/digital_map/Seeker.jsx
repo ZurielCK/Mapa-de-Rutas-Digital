@@ -7,14 +7,19 @@ import CustomTextField from "./CustomTextField.jsx";
 
 const Seeker = () => {
   const [showOptions, setShowOptions] = useState(false);
-  
+  const [origin, setOrigin] = useState({ name: '', lat: null, lon: null });
+  const [destination, setDestination] = useState({ name: '', lat: null, lon: null });
+
 
   const handleAccept = () => {
+    console.log("Origen:", origin);
+    console.log("Destino:", destination);
 
-
-
-
-    setShowOptions(true);
+    if (origin.lat && destination.lat) {
+      setShowOptions(true);
+    } else {
+      alert("Por favor selecciona una ubicación válida para origen y destino.");
+    }
   };
 
   return (
@@ -25,7 +30,7 @@ const Seeker = () => {
         flexDirection: "column",
         justifyContent: "start",
         gap: 0,
-        width: { xs: "100%,", sm: "50%", md: "25%" },
+        width: { xs: "98%", sm: "50%", md: "40%", lg:'25%' },
         position: "relative",
         zIndex: 1000,
       }}
@@ -35,7 +40,7 @@ const Seeker = () => {
           display: "flex",
           flexDirection: "column",
           bgcolor: "secondary.second",
-          height: showOptions ? "6vh" : "35vh",
+          height: showOptions ? "6vh" : "auto",
           borderRadius: 2,
           gap: 1.5,
           p: 2,
@@ -68,15 +73,15 @@ const Seeker = () => {
         <CustomTextField
           label="¿En dónde te encuentras?"
           name="origin"
-          onSelectPosition={(coords) => {
-            console.log("Nueva posición:", coords);
+          onSelectPosition={(coords, name) => {
+            setOrigin({ name, lat: coords[0], lon: coords[1] });
           }}
         />
         <CustomTextField
           label="¿A dónde quieres llegar?"
           name="destination"
-          onSelectPosition={(coords) => {
-            console.log("Nueva posición:", coords);
+          onSelectPosition={(coords, name) => {
+            setDestination({ name, lat: coords[0], lon: coords[1] });
           }}
         />
 

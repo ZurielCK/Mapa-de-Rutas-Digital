@@ -2,7 +2,7 @@ import { Box, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Navbar from '../../components/Navbar.jsx'
 import { Link } from "react-router-dom";
-import logo from "../../resources/images/Logo.jpg"; // Asegúrate de tener la ruta correcta
+import logo from "../../resources/images/Logo.jpg"; 
 
 const WelcomeScreen = () => {
   return (

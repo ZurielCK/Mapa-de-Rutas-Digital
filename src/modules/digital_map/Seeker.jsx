@@ -4,10 +4,12 @@ import IconButton from "@mui/material/IconButton";
 import OptionWays from "./OptionWays.jsx";
 import React, { useState } from "react";
 import CustomTextField from "./CustomTextField.jsx";
+import { useMapContext } from "../../context/MapContext"; 
 
 const Seeker = () => {
   const [showOptions, setShowOptions] = useState(false);
-  
+
+  const {origin, setOrigin, destination, setDestination } = useMapContext();
 
   const handleAccept = () => {
 

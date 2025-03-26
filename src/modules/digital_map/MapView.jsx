@@ -1,11 +1,23 @@
 import { Box } from "@mui/material";
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import React from "react";
+import { useMapContext } from "../../context/MapContext";
+import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 
 const MapView = () => {
   const position = [18.9186, -99.2343];
-  
+  const { origin, destination } = useMapContext();
+
+  const markerIconDestination = new L.Icon({
+    iconUrl: require('../../resources/images/destination.png'),
+    iconSize: [40,40],
+  })
+
+  const markerIconOrigin = new L.Icon({
+    iconUrl: require('../../resources/images/origin.png'),
+    iconSize: [40,40],
+  })
 
   return (
     <Box
@@ -33,6 +45,17 @@ const MapView = () => {
             Ubicación seleccionada: <br /> Ciudad de México.
           </Popup>
         </Marker>
+        {origin && (
+          <Marker icon={markerIconOrigin} position={[origin.lat, origin.lon]}>
+            <Popup>Origen: {origin.name}</Popup>
+          </Marker>
+        )}
+
+        {destination && (
+          <Marker icon={markerIconDestination} position={[destination.lat, destination.lon]}>
+            <Popup>Destino: {destination.name}</Popup>
+          </Marker>
+        )}
 
         <ZoomControl position="bottomright" />
       </MapContainer>

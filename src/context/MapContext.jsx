@@ -9,6 +9,7 @@ export const MapProvider = ({ children }) => {
   const [destination, setDestination] = useState(null);
 
   return (
+    
     <MapContext.Provider value={{ origin, setOrigin, destination, setDestination }}>
       {children}
     </MapContext.Provider>
